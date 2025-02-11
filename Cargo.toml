@@ -1,0 +1,28 @@
+[package]
+name = "koiboard"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.95"
+clap = { version = "4.5.28", features = ["derive", "env"] }
+serenity = "0.12.4"
+tokio = { version = "1.43.0", features = ["full"] }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+watchexec = "6.0.0"
+sea-orm = { workspace = true, features = [
+    "sqlx-sqlite",
+    "runtime-tokio-rustls",
+    "macros",
+] }
+itertools = "0.14.0"
+entity = { path = "entity" }
+url = "2.5.4"
+dotenv = "0.15.0"
+
+[workspace]
+members = ["entity", "migration"]
+
+[workspace.dependencies]
+sea-orm = "1.1.4"

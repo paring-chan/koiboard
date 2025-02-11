@@ -1,0 +1,4 @@
+/target
+agent-config.hcl
+.env
+.idea
