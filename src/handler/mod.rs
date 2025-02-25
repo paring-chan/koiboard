@@ -89,13 +89,7 @@ impl Handler {
 
             if let Some(existing) = existing {
                 let message_id = existing.counter_id;
-                // self.board_channel_id
-                //     .edit_message(
-                //         &ctx.http,
-                //         message_id.parse::<u64>().unwrap(),
-                //         EditMessage::new().embed(embed),
-                //     )
-                //     .await?;
+
                 self.webhook
                     .edit_message(
                         &ctx.http,
@@ -104,11 +98,6 @@ impl Handler {
                     )
                     .await?;
             } else {
-                // let counter = self
-                //     .board_channel_id
-                //     .send_message(&ctx.http, CreateMessage::new().embed(embed))
-                //     .await?;
-
                 let counter = self
                     .webhook
                     .execute(&ctx.http, true, ExecuteWebhook::new().embed(embed))

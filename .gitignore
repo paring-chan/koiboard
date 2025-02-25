@@ -2,3 +2,4 @@
 agent-config.hcl
 .env
 .idea
+data/
